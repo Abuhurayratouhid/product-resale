@@ -7,6 +7,7 @@ const Navbar = () => {
     <p className='mr-4'><Link to='/'>Home</Link></p>
     <p className='mr-4'><Link to='/blog'>Blog</Link></p>
     <p className='mr-4'><Link to='/login'>Login</Link></p>
+    <p className='mr-4'><Link to='/signUp'>Sign up</Link></p>
     <p className='mr-4'><Link >Log out</Link></p>
     </>
     return (

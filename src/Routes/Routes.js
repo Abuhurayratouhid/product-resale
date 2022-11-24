@@ -1,3 +1,5 @@
+import SignUp from "../Pages/SignUp/SignUp";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
 const { default: Blog } = require("../Pages/Blog/Blog");
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/signUp',
+                element: <SignUp></SignUp>
             }
         ]
     }
