@@ -1,3 +1,5 @@
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashboardLayout from "../Pages/Dashboard/DashboardLayout";
 import SignUp from "../Pages/SignUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
+            }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout></DashboardLayout>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
             }
         ]
     }

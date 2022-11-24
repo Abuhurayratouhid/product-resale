@@ -5,23 +5,24 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
-    const {user,createUser}= useContext(AuthContext);
+    const { user, createUser } = useContext(AuthContext);
 
-    const {register, handleSubmit} = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         // const name = data.name;
+        const account = data.accountType;
         const email = data.email;
         const password = data.password;
-        // console.log(name, email, password)
-        createUser(email, password)
-        .then(result => {
-            const user= result.user;
-            toast.success('sign up successful')
-            console.log(user)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        console.log(account, email, password)
+        // createUser(email, password)
+        //     .then(result => {
+        //         const user = result.user;
+        //         toast.success('sign up successful')
+        //         console.log(user)
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     })
     }
     return (
         <div>
@@ -41,7 +42,15 @@ const SignUp = () => {
                         <span className="label-text">Password </span>
                     </label>
                     <input type="password" {...register('password')} placeholder="password" className="input input-bordered input-info w-full max-w-xs" />
-                    
+                    <label className="label">
+                        <span className="label-text">Choose your account type </span>
+                    </label>
+                    <select {...register('accountType')} className="select select-bordered w-full max-w-xs">
+                        <option  selected>Buyer</option>
+                        
+                        <option>Seller</option>
+                    </select>
+
                     <button type='submit' className="btn btn-active btn-primary w-full max-w-xs mt-4">sign up</button>
                     <label className="label">
                         <span className="label-text">Already have an account? <span><Link to='/login'><button className="btn btn-link">Login </button></Link></span></span>
