@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { set } from 'react-hook-form';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import OrderModal from '../../Shared/Modal/OrderModal';
 import ProductCart from './ProductCart';
 
 const AllProducts = () => {
     const books = useLoaderData();
-    
-    // console.log(books)
+    const {user} = useContext(AuthContext)
+    const [book, setBook]= useState('');
+    // const handleModal = book =>{
+    //     setBook(book);
+    //     console.log(book)
+    // }
+    // console.log(book)
     return (
         <div>
             <h1 className='text-3xl font-bold text-center '>All books </h1>
@@ -15,8 +23,15 @@ const AllProducts = () => {
                     books.map(book => <ProductCart 
                     key={book._id}
                     book={book}
+                    setBook={setBook}
                     ></ProductCart>)
                 }
+            </div>
+            <div>
+                <OrderModal
+                user={user}
+                book={book}
+                ></OrderModal>
             </div>
         </div>
     );
