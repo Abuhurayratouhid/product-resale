@@ -9,10 +9,7 @@ const AllProducts = () => {
     const books = useLoaderData();
     const {user} = useContext(AuthContext)
     const [book, setBook]= useState('');
-    // const handleModal = book =>{
-    //     setBook(book);
-    //     console.log(book)
-    // }
+    
     // console.log(book)
     return (
         <div>
@@ -24,14 +21,18 @@ const AllProducts = () => {
                     key={book._id}
                     book={book}
                     setBook={setBook}
+                    
                     ></ProductCart>)
                 }
             </div>
             <div>
-                <OrderModal
-                user={user}
-                book={book}
-                ></OrderModal>
+                { book && 
+                    <OrderModal
+                    user={user}
+                    book={book}
+                    setBook={setBook}
+                    ></OrderModal>
+                }
             </div>
         </div>
     );

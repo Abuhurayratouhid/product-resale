@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderModal from '../../Shared/Modal/OrderModal';
+
 
 const ProductCart = ({ book, setBook }) => {
     const {name,picture,location,originalPrice,resalePrice,postedDate, sellerName,useOnly} = book;
@@ -19,7 +19,7 @@ const ProductCart = ({ book, setBook }) => {
                     
                     <label onClick={()=>setBook(book)} htmlFor="order-modal" className="btn btn-primary">Order now </label>
                 </div>
-                {/* <OrderModal></OrderModal> */}
+               
             </div>
         </div>
     );

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
-const OrderModal = ({ user, book }) => {
+const OrderModal = ({ user, book, setBook }) => {
     const { email } = user;
     const { name, resalePrice } = book;
 
@@ -16,7 +17,32 @@ const OrderModal = ({ user, book }) => {
         const price = form.price.value;
         const meetingLocation = form.meetingLocation.value;
         const phone = form.phone.value;
-        console.log(userEmail, itemName, price,meetingLocation,phone)
+        // console.log(userEmail, itemName, price,meetingLocation,phone)
+
+        // order 
+        const order ={
+            userEmail,
+            itemName,
+            price,
+            meetingLocation,
+            phone
+        }
+        // console.log(order)
+        fetch('http://localhost:5000/orders',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.acknowledged){
+                toast.success('order successfully booked')
+                setBook('')
+            }
+            // console.log(data)
+        })
     }
     return (
         <div>
