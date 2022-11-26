@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 
 const AllUsers = () => {
 
-    const { data: users = [], isLoading } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: () => fetch('http://localhost:5000/users')
             .then(res => res.json())
@@ -12,6 +13,21 @@ const AllUsers = () => {
     // console.log(users)
     if(isLoading){
         return <Loading></Loading>
+    }
+
+    const handleMakeAdmin = (_id)=>{
+        // console.log(_id)
+        fetch(`http://localhost:5000/user/${_id}`,{
+            method: 'PUT'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                toast.success('admin make successfully')
+                refetch()
+            }
+            console.log(data)
+        })
     }
     return (
         <div>
@@ -39,7 +55,7 @@ const AllUsers = () => {
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.account}</td>
-                                        <td><button className='btn btn-sm'>make admin</button></td>
+                                        <td>{user?.role !== 'admin' ? <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-sm'>make admin</button> : <span>Admin </span>}</td>
                                         <td><button className='btn btn-sm'>Delete </button></td>
                                     </tr>)
                                         

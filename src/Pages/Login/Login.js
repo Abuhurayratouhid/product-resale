@@ -7,18 +7,16 @@ import useToken from '../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
-    const { user, userLogin,loading } = useContext(AuthContext);
-    const [loginUserEmail, setLoginUserEmail] = useState('')
+    const {  userLogin, } = useContext(AuthContext);
+    // const [loginUserEmail, setLoginUserEmail] = useState('')
     
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const { register, handleSubmit } = useForm();
 
-    if(loading){
-        return <Loading></Loading>
-    }
-    console.log(loginUserEmail)
+    
+    // console.log(loginUserEmail)
 
     // const [token] = useToken(user?.email)
 
