@@ -1,5 +1,9 @@
+import AllOrders from "../Pages/Dashboard/AllOrders";
+import AllUsers from "../Pages/Dashboard/AllUsers";
+import Buyers from "../Pages/Dashboard/Buyers";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout";
+import Sellers from "../Pages/Dashboard/Sellers";
 import AllProducts from "../Pages/Home/AllProducts";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivetRoute from "./PrivetRoute";
@@ -47,7 +51,23 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
-            }
+            },
+            {
+                path: '/dashboard/allUsers',
+                element: <AllUsers></AllUsers>,
+            },
+            {
+                path: '/dashboard/allOrders',
+                element: <AllOrders></AllOrders>,
+            },
+            {
+                path: '/dashboard/sellers',
+                element: <Sellers></Sellers>,
+            },
+            {
+                path: '/dashboard/buyers',
+                element: <Buyers></Buyers>,
+            },
         ]
     }
 ])
