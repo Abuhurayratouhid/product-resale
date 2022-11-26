@@ -15,7 +15,9 @@ const Navbar = () => {
     const menuItems = <>
         <p className='mr-4'><Link to='/'>Home</Link></p>
         <p className='mr-4'><Link to='/blog'>Blog</Link></p>
-        <p className='mr-4'><Link to='/dashboard'>Dashboard</Link></p>
+        {user?.uid &&
+            <p className='mr-4'><Link to='/dashboard'>Dashboard</Link></p>
+        }
         {
             user?.uid ?
                 <p className='mr-4'><button onClick={handleLogout}>Logout </button></p>

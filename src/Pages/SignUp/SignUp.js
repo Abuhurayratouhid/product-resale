@@ -5,24 +5,37 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
-    const { user, createUser } = useContext(AuthContext);
+    const { user, createUser,updateUser } = useContext(AuthContext);
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        // const name = data.name;
+        const name = data.name;
         const account = data.accountType;
         const email = data.email;
         const password = data.password;
-        console.log(account, email, password)
-        // createUser(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         toast.success('sign up successful')
-        //         console.log(user)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
+        // console.log(account, email, password)
+        
+        
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                toast.success('sign up successful')
+                handleUpdateProfile(name, email, account)
+                
+                console.log(user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+    const handleUpdateProfile = (name, email, account)=>{
+        const userInfo = {
+            displayName: name,
+            email,
+            account
+        }
+        console.log(userInfo)
+        updateUser(userInfo)
     }
     return (
         <div>
