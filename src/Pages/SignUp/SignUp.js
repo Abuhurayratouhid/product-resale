@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const { user, createUser,updateUser } = useContext(AuthContext);
 
     const { register, handleSubmit } = useForm();
@@ -21,6 +22,7 @@ const SignUp = () => {
                 const user = result.user;
                 toast.success('sign up successful')
                 handleUpdateProfile(name, email, account)
+                saveUser(name, email,account)
                 
                 console.log(user)
             })
@@ -34,8 +36,30 @@ const SignUp = () => {
             email,
             account
         }
-        console.log(userInfo)
+        // console.log(userInfo)
         updateUser(userInfo)
+    }
+
+    const saveUser = (name,email,account) =>{
+        const userInfo ={
+            name,
+            email,
+            account
+        }
+        // request to save user in DB 
+        fetch('http://localhost:5000/users',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+            navigate('/')
+            console.log(data)
+        })
+
     }
     return (
         <div>
