@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 
 const Sellers = () => {
-    const {data: sellers = [], isLoading} = useQuery({
+    const {data: sellers = [], isLoading, refetch} = useQuery({
         queryKey: ['sellers'],
         queryFn: ()=>fetch('http://localhost:5000/sellers')
         .then(res => res.json())
@@ -11,6 +12,23 @@ const Sellers = () => {
     // console.log(sellers)
     if(isLoading){
         return <Loading></Loading>
+    }
+
+    //handle seller delete
+    const handleSellerDelete = (_id)=>{
+        // console.log(_id)
+
+        fetch(`http://localhost:5000/seller/${_id}`,{
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                toast.success('Seller deleted')
+                refetch()
+            }
+            // console.log(data)
+        })
     }
     return (
         <div>
@@ -39,7 +57,7 @@ const Sellers = () => {
                                         <td>{user.email}</td>
                                         <td>{user.account}</td>
                                         <td><button className='btn btn-sm'>Verify </button></td>
-                                        <td><button className='btn btn-sm'>Delete </button></td>
+                                        <td><button onClick={()=>handleSellerDelete(user._id)} className='btn btn-sm'>Delete </button></td>
                                     </tr>)
                                         
                                 }

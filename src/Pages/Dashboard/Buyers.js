@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 
 const Buyers = () => {
-    const {data: buyers = [],isLoading} = useQuery({
+    const {data: buyers = [],isLoading, refetch} = useQuery({
         queryKey: ['buyers'],
         queryFn: ()=>fetch('http://localhost:5000/buyers')
         .then(res => res.json())
@@ -11,6 +12,23 @@ const Buyers = () => {
     // console.log(buyers)
     if(isLoading){
         return <Loading></Loading>
+    }
+
+    // handle buyers delete 
+    const handleBuyerDelete = (_id)=>{
+        // console.log(_id)
+
+        fetch(`http://localhost:5000/buyer/${_id}`,{
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                toast.success('Buyer deleted')
+                refetch()
+            }
+            // console.log(data)
+        })
     }
     return (
         <div>
@@ -27,7 +45,7 @@ const Buyers = () => {
                                  <th>Name</th>
                                  <th>email</th>
                                  <th>Account status</th>
-                                 <th>Make admin</th>
+                                 
                                  <th>delete</th>
                              </tr>
                          </thead>
@@ -38,8 +56,8 @@ const Buyers = () => {
                                      <td>{user.name}</td>
                                      <td>{user.email}</td>
                                      <td>{user.account}</td>
-                                     <td><button className='btn btn-sm'>Verify </button></td>
-                                     <td><button className='btn btn-sm'>Delete </button></td>
+                                     
+                                     <td><button onClick={()=>handleBuyerDelete(user._id)} className='btn btn-sm'>Delete </button></td>
                                  </tr>)
                                      
                              }
