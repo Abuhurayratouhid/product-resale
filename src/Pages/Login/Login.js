@@ -1,18 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../Hooks/useToken';
+import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
-    const { user, userLogin } = useContext(AuthContext);
+    const { user, userLogin,loading } = useContext(AuthContext);
+    const [loginUserEmail, setLoginUserEmail] = useState('')
+    
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const { register, handleSubmit } = useForm();
 
-    const [token] = useToken(user?.email)
+    if(loading){
+        return <Loading></Loading>
+    }
+    console.log(loginUserEmail)
+
+    // const [token] = useToken(user?.email)
 
 
     const onSubmit = data => {
@@ -22,6 +30,7 @@ const Login = () => {
         userLogin(email, password)
             .then(result => {
                 const user = result.user;
+                getToken(email)
                 toast.success('login successful')
                 navigate(from, { replace: true });
                 console.log(user)
@@ -29,6 +38,21 @@ const Login = () => {
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    const getToken = (email)=>{
+        if (email) {
+            fetch(`http://localhost:5000/jwt?email=${email}`)
+                .then(res => res.json())
+                .then(data => {
+
+                    // console.log(data)
+                    localStorage.setItem('accessToken',data?.accessToken)
+                    
+                })
+        }
+        // console.log(email)
+
     }
     return (
         <div>

@@ -44,7 +44,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a href='/' className="btn btn-ghost normal-case text-xl"><img className='h-10 w-10 mr-2' src={logo} alt="" /> Book-HUT</a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='h-10 w-10 mr-2' src={logo} alt="" /> Book-HUT</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
