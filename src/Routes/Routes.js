@@ -6,6 +6,7 @@ import DashboardLayout from "../Pages/Dashboard/DashboardLayout";
 import Sellers from "../Pages/Dashboard/Sellers";
 import AllProducts from "../Pages/Home/AllProducts";
 import SignUp from "../Pages/SignUp/SignUp";
+import AdminRoute from "./AdminRoute";
 import PrivetRoute from "./PrivetRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -54,19 +55,19 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allUsers',
-                element: <AllUsers></AllUsers>,
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
             },
             {
                 path: '/dashboard/allOrders',
-                element: <AllOrders></AllOrders>,
+                element: <AdminRoute><AllOrders></AllOrders></AdminRoute>,
             },
             {
                 path: '/dashboard/sellers',
-                element: <Sellers></Sellers>,
+                element: <AdminRoute><Sellers></Sellers></AdminRoute>,
             },
             {
                 path: '/dashboard/buyers',
-                element: <Buyers></Buyers>,
+                element: <AdminRoute><Buyers></Buyers></AdminRoute>,
             },
         ]
     }
