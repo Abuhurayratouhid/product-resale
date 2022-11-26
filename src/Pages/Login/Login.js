@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const { user, userLogin } = useContext(AuthContext);
@@ -10,6 +11,8 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const { register, handleSubmit } = useForm();
+
+    const [token] = useToken(user?.email)
 
 
     const onSubmit = data => {
