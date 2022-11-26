@@ -1,13 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loading from '../../Shared/Loading/Loading';
 
 const Sellers = () => {
-    const {data: sellers = []} = useQuery({
+    const {data: sellers = [], isLoading} = useQuery({
         queryKey: ['sellers'],
         queryFn: ()=>fetch('http://localhost:5000/sellers')
         .then(res => res.json())
     })
-    console.log(sellers)
+    // console.log(sellers)
+    if(isLoading){
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h1 className='text-center text-3xl font-semibold'>Sellers </h1>
