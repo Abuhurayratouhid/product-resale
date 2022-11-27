@@ -63,7 +63,7 @@ const SignUp = () => {
             account
         }
         // request to save user in DB 
-        fetch('http://localhost:5000/users', {
+        fetch('https://product-resale-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

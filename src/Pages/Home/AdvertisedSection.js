@@ -6,14 +6,14 @@ import SpecialCard from './SpecialCard';
 const AdvertisedSection = () => {
     const {data: advertisements = [], refetch} = useQuery({
         queryKey: ['advertise'],
-        queryFn: ()=> fetch('http://localhost:5000/advertise')
+        queryFn: ()=> fetch('https://product-resale-server.vercel.app/advertise')
         .then(res => res.json())
     })
     // console.log(advertisements)
     // handleOffer
     const handleOffer = (_id)=>{
         console.log(_id)
-        fetch(`http://localhost:5000/advertise/${_id}`,{
+        fetch(`https://product-resale-server.vercel.app/advertise/${_id}`,{
             method: 'DELETE',
         })
         .then(res => res.json())

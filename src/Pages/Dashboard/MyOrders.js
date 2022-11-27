@@ -8,13 +8,13 @@ const MyOrders = () => {
 
     const {data: orders =[],} = useQuery({
         queryKey: ['orders'],
-        queryFn:()=>fetch(`http://localhost:5000/orders/${user?.email}`)
+        queryFn:()=>fetch(`https://product-resale-server.vercel.app/orders/${user?.email}`)
         .then(res => res.json())
     })
     // console.log(orders)
     return (
         <div>
-            <h1>My orders </h1>
+            <h1 className='text-center text-3xl text-semibold my-5'>My orders </h1>
 
             <div>
                 <div className="overflow-x-auto">

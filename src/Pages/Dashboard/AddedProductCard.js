@@ -13,8 +13,8 @@ const AddedProductCard = ({product,handleProductDelete,handleProductAdvertise}) 
                 <p>Status:{productStatus}</p>
                 <p>Price:{price}</p>
                 <div className="card-actions justify-end">
-                    <div className="badge badge-outline"><button onClick={()=>handleProductDelete(_id)}>Delete</button></div>
-                    <div className="badge badge-outline"><button onClick={()=>handleProductAdvertise(product)}>Advertise</button></div>
+                    <div className="badge badge-outline bg-red-300"><button className='' onClick={()=>handleProductDelete(_id)}>Delete</button></div>
+                    <div className="badge badge-outline bg-primary text-white"><button onClick={()=>handleProductAdvertise(product)}>Advertise</button></div>
                 </div>
             </div>
         </div>

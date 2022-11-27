@@ -5,7 +5,7 @@ import Loading from '../../Shared/Loading/Loading';
 const AllOrders = () => {
     const {data: orders = [],isLoading} = useQuery({
         queryKey: ['orders'],
-        queryFn: ()=>fetch('http://localhost:5000/orders')
+        queryFn: ()=>fetch('https://product-resale-server.vercel.app/orders')
         .then(res => res.json())
     })
 

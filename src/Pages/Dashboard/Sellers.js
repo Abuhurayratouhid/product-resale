@@ -7,7 +7,7 @@ const Sellers = () => {
     
     const {data: sellers = [], isLoading, refetch} = useQuery({
         queryKey: ['sellers'],
-        queryFn: ()=>fetch('http://localhost:5000/sellers')
+        queryFn: ()=>fetch('https://product-resale-server.vercel.app/sellers')
         .then(res => res.json())
     })
     // console.log(sellers)
@@ -22,7 +22,7 @@ const Sellers = () => {
     const handleSellerDelete = (_id)=>{
         // console.log(_id)
 
-        fetch(`http://localhost:5000/seller/${_id}`,{
+        fetch(`https://product-resale-server.vercel.app/seller/${_id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

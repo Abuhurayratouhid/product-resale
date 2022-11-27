@@ -7,7 +7,7 @@ const AllUsers = () => {
 
     const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
-        queryFn: () => fetch('http://localhost:5000/users')
+        queryFn: () => fetch('https://product-resale-server.vercel.app/users')
             .then(res => res.json())
     })
     // console.log(users)
@@ -17,7 +17,7 @@ const AllUsers = () => {
 
     const handleMakeAdmin = (_id) => {
         // console.log(_id)
-        fetch(`http://localhost:5000/user/${_id}`, {
+        fetch(`https://product-resale-server.vercel.app/user/${_id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

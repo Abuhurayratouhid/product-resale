@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 const Buyers = () => {
     const {data: buyers = [],isLoading, refetch} = useQuery({
         queryKey: ['buyers'],
-        queryFn: ()=>fetch('http://localhost:5000/buyers')
+        queryFn: ()=>fetch('https://product-resale-server.vercel.app/buyers')
         .then(res => res.json())
     })
     // console.log(buyers)
@@ -18,7 +18,7 @@ const Buyers = () => {
     const handleBuyerDelete = (_id)=>{
         // console.log(_id)
 
-        fetch(`http://localhost:5000/buyer/${_id}`,{
+        fetch(`https://product-resale-server.vercel.app/buyer/${_id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())
