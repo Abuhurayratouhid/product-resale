@@ -1,3 +1,4 @@
+import AddProduct from "../Pages/Dashboard/AddProduct";
 import AllOrders from "../Pages/Dashboard/AllOrders";
 import AllUsers from "../Pages/Dashboard/AllUsers";
 import Buyers from "../Pages/Dashboard/Buyers";
@@ -10,6 +11,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
 import PrivetRoute from "./PrivetRoute";
+import SellerRoute from "./SellerRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
@@ -74,6 +76,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myOrders',
                 element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            },
+            {
+                path: '/dashboard/addProduct',
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
             }
         ]
     }
