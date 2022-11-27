@@ -5,9 +5,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../Hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const {  userLogin, } = useContext(AuthContext);
+    const {  userLogin,googleLogin } = useContext(AuthContext);
     // const [loginUserEmail, setLoginUserEmail] = useState('')
     
     let navigate = useNavigate();
@@ -52,6 +53,21 @@ const Login = () => {
         // console.log(email)
 
     }
+
+    // handleGoogleLogin
+    const handleGoogleLogin = ()=>{
+        // console.log('google login clicked')
+        googleLogin()
+        .then(result => {
+            const user = result.user;
+            toast.success('login successful')
+            console.log(user)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+    }
     return (
         <div>
             <h1 className='text-center text-4xl font-semibold'>Please login  </h1>
@@ -72,8 +88,8 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Are you new here? <span><Link to='/signUp'><button className="btn btn-link">Sign up</button></Link></span></span>
                     </label>
+                <button onClick={handleGoogleLogin} className="btn btn-outline w-full max-w-xs my-5"><span className='text-4xl'><FcGoogle></FcGoogle></span></button>
                 </form>
-
             </section>
         </div>
     );

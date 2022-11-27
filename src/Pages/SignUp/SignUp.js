@@ -85,6 +85,7 @@ const SignUp = () => {
         googleLogin()
         .then(result => {
             const user = result.user;
+            toast.success('login successful')
             console.log(user)
         })
         .catch(error => {

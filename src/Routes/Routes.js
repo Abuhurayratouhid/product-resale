@@ -3,10 +3,12 @@ import AllUsers from "../Pages/Dashboard/AllUsers";
 import Buyers from "../Pages/Dashboard/Buyers";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashboardLayout from "../Pages/Dashboard/DashboardLayout";
+import MyOrders from "../Pages/Dashboard/MyOrders";
 import Sellers from "../Pages/Dashboard/Sellers";
 import AllProducts from "../Pages/Home/AllProducts";
 import SignUp from "../Pages/SignUp/SignUp";
 import AdminRoute from "./AdminRoute";
+import BuyerRoute from "./BuyerRoute";
 import PrivetRoute from "./PrivetRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/buyers',
                 element: <AdminRoute><Buyers></Buyers></AdminRoute>,
             },
+            {
+                path: '/dashboard/myOrders',
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            }
         ]
     }
 ])
