@@ -104,7 +104,7 @@ const AddProduct = () => {
                         <span className="label-text">Choose your product category </span>
                     </label>
                     <select name='categoryName' className="select select-bordered w-full" required >
-                        <option selected>Horror</option>
+                        <option >Horror</option>
                         <option>Action & adventure</option>
                         <option>Historical fiction</option>
                     </select>

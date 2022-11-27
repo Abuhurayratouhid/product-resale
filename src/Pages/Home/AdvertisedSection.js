@@ -1,15 +1,44 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
+import SpecialCard from './SpecialCard';
 
 const AdvertisedSection = () => {
+    const {data: advertisements = [], refetch} = useQuery({
+        queryKey: ['advertise'],
+        queryFn: ()=> fetch('http://localhost:5000/advertise')
+        .then(res => res.json())
+    })
+    // console.log(advertisements)
+    // handleOffer
+    const handleOffer = (_id)=>{
+        console.log(_id)
+        fetch(`http://localhost:5000/advertise/${_id}`,{
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount){
+                toast.success('you got the offer')
+                refetch()
+            }
+            console.log(data)
+        })
+    }
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <img alt='' src="https://placeimg.com/260/400/arch" className="max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                    <h1 className="text-5xl font-bold">Advertise section </h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary">Get Started</button>
-                </div>
+        <div>
+            <div className='text-center'>
+                <h1 className='text-4xl font-bold'>Our special offers going on</h1>
+                <h1 className='text-3xl font-semibold'>Don't lose</h1>
+            </div>
+            <div className='grid gap-5 grid-cols-1 lg:grid-cols-2'>
+                {
+                    advertisements.map(advertise => <SpecialCard
+                    key={advertise._id}
+                    advertise={advertise}
+                    handleOffer={handleOffer}
+                    ></SpecialCard>)
+                }
             </div>
         </div>
     );
