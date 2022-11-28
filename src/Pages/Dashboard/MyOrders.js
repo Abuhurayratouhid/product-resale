@@ -1,17 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyOrders = () => {
     const {user} = useContext(AuthContext);
 
 
-    const {data: orders =[],} = useQuery({
+    const {data: orders =[], isLoading} = useQuery({
         queryKey: ['orders'],
         queryFn:()=>fetch(`https://product-resale-server.vercel.app/orders/${user?.email}`)
         .then(res => res.json())
     })
     // console.log(orders)
+    if(isLoading){
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h1 className='text-center text-3xl text-semibold my-5'>My orders </h1>

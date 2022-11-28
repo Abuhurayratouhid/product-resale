@@ -12,8 +12,11 @@ const ProductCategories = () => {
     // console.log(categories)
     return (
         <div>
+            <div className='my-20'>
             <h1 className='text-4xl text-center font-bold'>Our books categories:</h1>
+            <h1 className='text-2xl text-center font-bold'>choose your favorite one</h1>
 
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     categories?.map(category => <CategoryCard

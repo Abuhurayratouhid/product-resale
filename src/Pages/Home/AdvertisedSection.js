@@ -26,8 +26,8 @@ const AdvertisedSection = () => {
         })
     }
     return (
-        <div>
-            <div className='text-center'>
+        <div className=''>
+            <div className='text-center my-20'>
                 <h1 className='text-4xl font-bold'>Our special offers going on</h1>
                 <h1 className='text-3xl font-semibold'>Don't lose</h1>
             </div>

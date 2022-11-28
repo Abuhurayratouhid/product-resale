@@ -34,6 +34,22 @@ const Sellers = () => {
             // console.log(data)
         })
     }
+
+    // handle verify seller 
+    const handleVerifySeller = (_id)=>{
+        // console.log(_id)
+        fetch(`http://localhost:5000/user/verify/${_id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('seller verified successfully')
+                    refetch()
+                }
+                console.log(data)
+            })
+    }
     return (
         <div>
             <h1 className='text-center text-3xl font-semibold'>Sellers </h1>
@@ -60,7 +76,7 @@ const Sellers = () => {
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.account}</td>
-                                        <td><button  className='btn btn-sm'>Verify </button></td>
+                                        <td>{user?.status !== 'verify' ? <button onClick={()=>handleVerifySeller(user._id)}  className='btn btn-sm'>Verify </button> : <span>Verified</span>}</td>
                                         
                                         <td><button onClick={()=>handleSellerDelete(user._id)} className='btn btn-sm'>Delete </button></td>
                                     </tr>)
