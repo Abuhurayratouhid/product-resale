@@ -38,7 +38,7 @@ const Sellers = () => {
     // handle verify seller 
     const handleVerifySeller = (_id)=>{
         // console.log(_id)
-        fetch(`http://localhost:5000/user/verify/${_id}`, {
+        fetch(`https://product-resale-server.vercel.app/user/verify/${_id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
