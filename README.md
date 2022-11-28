@@ -2,8 +2,8 @@
 ### book resaller website
 ###live website link [https://product-resale.web.app/]
 
-### adminEmail:real@admin.com 
-### adminPassword:admin0889
+### adminEmail>  real@admin.com 
+### adminPassword>  admin0889
 
 ## Some Features:
 - this site is one page application . so don't worry about loading perfomence. it will be faster .
