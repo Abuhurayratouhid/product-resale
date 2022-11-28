@@ -2,6 +2,9 @@
 ### book resaller website
 ###live website link [https://product-resale.web.app/]
 
+### adminEmail: 
+### adminPassword:
+
 ## Some Features:
 - this site is one page application . so don't worry about loading perfomence. it will be faster .
 - this site is responsiv. that's way it's available for small and large devices both. 
