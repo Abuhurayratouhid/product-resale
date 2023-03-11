@@ -12,21 +12,22 @@ const AdvertisedSection = () => {
     // console.log(advertisements)
     // handleOffer
     const handleOffer = (_id)=>{
-        console.log(_id)
-        fetch(`https://product-resale-server.vercel.app/advertise/${_id}`,{
-            method: 'DELETE',
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.deletedCount){
-                toast.success('you got the offer')
-                refetch()
-            }
-            console.log(data)
-        })
+        toast.success('you got the offer')
+        // console.log(_id)
+        // fetch(`https://product-resale-server.vercel.app/advertise/${_id}`,{
+        //     method: 'DELETE',
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     if(data.deletedCount){
+                
+        //         refetch()
+        //     }
+        //     console.log(data)
+        // })
     }
     return (
-        <div className=''>
+        <div className='max-w-[1280px] mx-auto'>
             <div className='text-center my-20'>
                 <h1 className='text-4xl font-bold'>Our special offers going on</h1>
                 <h1 className='text-3xl font-semibold'>Don't lose</h1>

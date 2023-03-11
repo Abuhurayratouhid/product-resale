@@ -16,9 +16,9 @@ const Navbar = () => {
     const menuItems = <>
         <p className='mr-4'><Link to='/'>Home</Link></p>
         <p className='mr-4'><Link to='/blog'>Blog</Link></p>
-        {user?.uid &&
-            <p className='mr-4'><Link to='/dashboard'>Dashboard</Link></p>
-        }
+        
+        <p className='mr-4'><Link to='/dashboard'>Dashboard</Link></p>
+        
         {
             user?.uid ?
                 <p className='mr-4'><button onClick={handleLogout}>Logout </button></p>
@@ -26,15 +26,15 @@ const Navbar = () => {
                 <p className='mr-4'><Link to='/login'>Login</Link></p>
         }
         <p className='mr-4'><Link to='/signUp'>Sign up</Link></p>
-        {
+        {/* {
             user?.uid ?
                 <p className='mr-4'><Link >{user?.email}</Link></p>
                 :
                 <p className='mr-4'><button>No user </button></p>
-        }
+        } */}
     </>
     return (
-        <div className="navbar bg-base-200 h-32">
+        <div className="navbar bg-yellow-500  h-32">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

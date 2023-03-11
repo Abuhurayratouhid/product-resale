@@ -11,7 +11,7 @@ const Banner = () => {
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">We got best book reseller award last year </h1>
                     <p className="mb-5">We deeply believe. the book can change the nation. doesn't matter the book is new or old .</p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <button className="btn btn-warning">Get Started</button>
                 </div>
             </div>
         </div>

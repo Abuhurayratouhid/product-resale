@@ -6,10 +6,15 @@ import AdvertisedSection from './AdvertisedSection';
 import AudioBook from './AudioBook';
 import Banner from './Banner';
 import ExtraSection from './ExtraSection';
+import NewRelease from './NewRelease';
 import ProductCategories from './ProductCategories';
+import StudySpace from './StudySpace';
+import Summary from './Summary';
+import WhyWeBest from './WhyWeBest';
+
 
 const Home = () => {
-    const { data: advertisements = [], isLoading, refetch } = useQuery({
+    const { data: advertisements = [], isLoading, } = useQuery({
         queryKey: ['advertisements'],
         queryFn: () => fetch('https://product-resale-server.vercel.app/advertise')
             .then(res => res.json())
@@ -24,17 +29,22 @@ const Home = () => {
 
     return (
         <div>
-
+            
             <Banner></Banner>
+            <Summary></Summary>
             {
                 advertisements.length > 0 &&
-                    <AdvertisedSection></AdvertisedSection>
-                   
+                <AdvertisedSection></AdvertisedSection>
+                
             }
             <ProductCategories></ProductCategories>
             <ExtraSection></ExtraSection>
+            <WhyWeBest></WhyWeBest>
+            <StudySpace></StudySpace>
             <AudioBook></AudioBook>
+            <NewRelease></NewRelease>
             <Footer></Footer>
+            
         </div>
     );
 };

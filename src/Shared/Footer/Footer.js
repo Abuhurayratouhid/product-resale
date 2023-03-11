@@ -4,7 +4,7 @@ import logo from '../../assets/book-logo.jpg';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <footer className="footer p-10 bg-yellow-500 text-white">
             <div>
                 <img className='h-20' src={logo} alt="" />
                 <p>Book HUT Ltd.<br />Best book reseller since 2012</p>
