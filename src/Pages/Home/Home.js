@@ -11,6 +11,8 @@ import ProductCategories from './ProductCategories';
 import StudySpace from './StudySpace';
 import Summary from './Summary';
 import WhyWeBest from './WhyWeBest';
+import AboutUs from './AboutUs';
+import Blogs from './Blogs';
 
 
 const Home = () => {
@@ -42,7 +44,9 @@ const Home = () => {
             <WhyWeBest></WhyWeBest>
             <StudySpace></StudySpace>
             <AudioBook></AudioBook>
+            <AboutUs/>
             <NewRelease></NewRelease>
+            <Blogs/>
             <Footer></Footer>
             
         </div>

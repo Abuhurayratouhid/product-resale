@@ -34,7 +34,7 @@ const Navbar = () => {
         } */}
     </>
     return (
-        <div className="navbar bg-yellow-500  h-32">
+        <div className="navbar bg-yellow-300  h-32">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -45,7 +45,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='h-10 w-10 mr-2' src={logo} alt="" /> Book-HUT</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"><img className='h-10 w-10 mr-2 rounded-full' src={logo} alt="" /> Book-HUT</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -54,7 +54,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <Link className=" hidden lg:block"><span className='text-primary font-bold '>Go premium</span> <span className='text-3xl text-primary ml-5'><BsArrowRight></BsArrowRight></span> </Link>
+                <Link className=" hidden lg:block text-violet-700 font-bold">Go premium </Link>
             </div>
             <label htmlFor="dashboard-drawer" tabIndex={0} className="btn btn-ghost lg:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>

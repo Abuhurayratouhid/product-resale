@@ -94,27 +94,27 @@ const SignUp = () => {
 
     }
     return (
-        <div className='max-w-[500px] mx-auto m-5'>
+        <div className='max-w-[500px] mx-auto m-5  flex justify-center'>
 
             <section >
-            <h1 className=' text-4xl font-semibold'>Please Sign up </h1>
+            <h1 className=' text-4xl font-semibold text-center'>Sign up </h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label className="label">
                         <span className="label-text">Name</span>
                     </label>
-                    <input type="text" {...register('name')} placeholder="name" className="input input-bordered input-info w-full max-w-xs" />
+                    <input type="text" {...register('name')} placeholder="name" className="input input-bordered input-info w-full " />
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" {...register('email')} placeholder="email" className="input input-bordered input-info w-full max-w-xs" />
+                    <input type="email" {...register('email')} placeholder="email" className="input input-bordered input-info w-full " />
                     <label className="label">
                         <span className="label-text">Password </span>
                     </label>
-                    <input type="password" {...register('password')} placeholder="password" className="input input-bordered input-info w-full max-w-xs" />
+                    <input type="password" {...register('password')} placeholder="password" className="input input-bordered input-info w-full " />
                     <label className="label">
                         <span className="label-text">Choose your account type </span>
                     </label>
-                    <select {...register('accountType')} className="select select-bordered w-full max-w-xs">
+                    <select {...register('accountType')} className="select select-bordered w-full ">
                         <option selected>Buyer</option>
 
                         <option>Seller</option>
@@ -126,12 +126,12 @@ const SignUp = () => {
                     </label>
 
                     
-                    <button type='submit' className="btn btn-active btn-primary w-full max-w-xs ">sign up</button>
+                    <button type='submit' className="btn btn-active btn-primary w-full ">sign up</button>
                        
                         
                    
                 </form>
-                <button onClick={handleGoogleLogin} className="btn btn-outline w-full max-w-xs my-5"><span className='text-4xl'><FcGoogle></FcGoogle></span></button>
+                <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-5"><span className='text-4xl'><FcGoogle></FcGoogle></span></button>
             </section>
         </div>
     );

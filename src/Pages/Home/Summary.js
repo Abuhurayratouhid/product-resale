@@ -2,6 +2,7 @@ import React from 'react';
 import pic1 from '../../assets/books.png';
 import pic2 from '../../assets/users.png';
 import pic3 from '../../assets/love.png';
+import { BsFillEmojiSmileFill } from 'react-icons/bs';
 
 
 const summaryItems = [
@@ -21,7 +22,7 @@ const summaryItems = [
         id: 3,
         title: 'Happy Users',
         subTitle: '9878686987',
-        picture: pic3,
+        picture: "https://cdn-icons-png.flaticon.com/512/158/158420.png",
     },
 
 ]
